@@ -1,0 +1,153 @@
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 8px;
+}
+
+// BG HOME
+.bg-home {
+  position: relative;
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    // Gradiente amarelo sobre o fundo escuro
+    background-image: linear-gradient(to bottom, rgba(6, 18, 30, 0.8), rgba(255, 187, 30, 0.3)), url("../assets/bg.svg");
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 0;
+    opacity: 0.9;
+  }
+}
+
+// HERO
+.hero {
+  color: $white-normal;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 14px;
+
+  h1 {
+    text-align: center;
+    line-height: 150%;
+    max-width: 940px;
+    font-size: 46px;
+  }
+
+  p {
+    text-align: center;
+    margin: 14px 0;
+  }
+}
+
+.button-contact {
+  padding: 14px 28px;
+  color: $black-normal; // Preto no botão amarelo
+  background-color: $red-normal;
+  border: 0;
+  border-radius: 4px;
+  font-size: 18px;
+  font-weight: 600;
+  margin: 14px 0;
+  &:hover {
+    animation: scaleButton 0.8s alternate infinite;
+  }
+}
+
+// VITRINE (Abaixo do Sobre)
+.showcase {
+  background-color: #0a0a0a;
+  padding: 54px 14px;
+  color: $white-normal;
+  
+  .showcase-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+  }
+}
+
+.product-card {
+  background-color: #161616;
+  border: 1px solid #333;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  width: 280px;
+  transition: transform 0.3s;
+  &:hover {
+    border-color: $red-normal;
+    transform: translateY(-5px);
+  }
+  h3 { color: $red-normal; margin: 10px 0; }
+  span { font-weight: bold; color: $white-normal; }
+}
+
+// SERVIÇOS
+.services {
+  background-color: $white-normal;
+  color: $black-normal;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 54px 14px;
+}
+
+.haircuts {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  padding: 0 44px 34px 44px;
+}
+
+.haircut {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: $white-normal;
+  border-radius: 8px;
+  box-shadow: 0px -1px 17px -4px rgba(0,0,0, 0.45);
+  overflow: hidden;
+  img {
+    width: 100%;
+    transition: transform 0.2s;
+    &:hover { transform: scale(1.1); }
+  }
+}
+
+.haircut-info {
+  display: flex;
+  justify-content: space-between;
+  padding: 14px;
+  button {
+    background-color: $red-normal;
+    color: $black-normal;
+    border: 0;
+    padding: 5px 10px;
+    border-radius: 4px;
+  }
+}
+
+@keyframes scaleButton {
+  from { transform: scale(1); }
+  to { transform: scale(1.07); }
+}
+
+// Media Queries simplificadas
+@media screen and (max-width: 768px) {
+  .hero h1 { font-size: 34px; }
+  .haircuts { flex-direction: column; }
+  .about-content { flex-direction: column; }
+}
